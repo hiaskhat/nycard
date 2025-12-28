@@ -38,7 +38,7 @@ const snowflake_colour = 'white';
 const snowflakes = [];
 
 const canvas = document.createElement('canvas');
-canvas.style.position = 'absolute';
+canvas.style.position = 'fixed';
 canvas.style.pointerEvents = 'none';
 canvas.style.top = '0px';
 canvas.style.zIndex = 2;
@@ -90,6 +90,11 @@ const animate = () => {
 for (let i = 0; i < number_of_snowflakes; i++) {
 	snowflakes.push(createSnowflake());
 }
+
+window.addEventListener('resize', () => {
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+})
 
 
 animate()
